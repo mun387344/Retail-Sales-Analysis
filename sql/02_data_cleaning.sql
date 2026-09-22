@@ -36,3 +36,12 @@ AND customerid IS NULL;
 
 SELECT MIN(Quantity),MAX(Quantity)
 FROM online_retail;
+
+SELECT COUNT(*)
+FROM online_retail
+WHERE UnitPrice =0;
+
+SELECT *
+FROM online_retail
+WHERE Quantity = -80995
+OR Quantity = 80995;
