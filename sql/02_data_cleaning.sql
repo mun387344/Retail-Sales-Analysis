@@ -37,6 +37,11 @@ AND customerid IS NULL;
 SELECT MIN(Quantity),MAX(Quantity)
 FROM online_retail;
 
+SELECT *
+FROM online_retail
+WHERE Quantity = -80995
+OR Quantity = 80995;
+
 SELECT COUNT(*)
 FROM online_retail
 WHERE UnitPrice =0;
@@ -44,10 +49,52 @@ WHERE UnitPrice =0;
 SELECT *
 FROM online_retail
 WHERE UnitPrice = 0
-AND invoiceno LIKE 'C%';
+LIMIT 20;
 
 SELECT *
 FROM online_retail
-WHERE Quantity = -80995
-OR Quantity = 80995;
+WHERE UnitPrice = 0
+AND invoiceno LIKE 'C%';
+
+SELECT COUNT(*)
+FROM online_retail
+WHERE UnitPrice = 0
+AND Customerid IS NULL;
+
+SELECT *
+FROM online_retail
+WHERE UnitPrice = 0
+AND Customerid IS NOT NULL;
+
+SELECT Quantity UnitPrice
+FROM online_retail
+WHERE UnitPrice = 0
+AND Quantity = 0;
+
+SELECT COUNT(*)
+FROM online_retail
+WHERE UnitPrice = 0
+AND Quantity < 0;
+
+SELECT COUNT(*)
+FROM online_retail
+WHERE UnitPrice = 0
+AND Quantity < 0
+AND InvoiceNo NOT LIKE 'C%';
+
+SELECT COUNT(*)
+FROM online_retail
+WHERE UnitPrice = 0
+AND Quantity < 0
+AND InvoiceNo NOT LIKE 'C%'
+AND CustomerID IS NULL;
+
+SELECT DISTINCT Description
+FROM online_retail
+WHERE UnitPrice = 0
+AND Quantity < 0
+AND InvoiceNo NOT LIKE 'C%'
+AND CustomerID IS NULL;
+
+
 
