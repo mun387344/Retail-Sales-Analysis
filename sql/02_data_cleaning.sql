@@ -96,5 +96,13 @@ AND Quantity < 0
 AND InvoiceNo NOT LIKE 'C%'
 AND CustomerID IS NULL;
 
+SELECT COUNT(*)
+FROM online_retail
+WHERE UnitPrice = 0
+AND Quantity > 0;
 
+SELECT DISTINCT Description
+FROM online_retail
+WHERE UnitPrice = 0
+AND Quantity > 0;
 
