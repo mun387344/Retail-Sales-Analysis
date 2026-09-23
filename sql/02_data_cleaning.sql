@@ -43,5 +43,11 @@ WHERE UnitPrice =0;
 
 SELECT *
 FROM online_retail
+WHERE UnitPrice = 0
+AND invoiceno LIKE 'C%';
+
+SELECT *
+FROM online_retail
 WHERE Quantity = -80995
 OR Quantity = 80995;
+
