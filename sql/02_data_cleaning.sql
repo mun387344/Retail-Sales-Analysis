@@ -19,15 +19,15 @@ COUNT(*) FILTER (WHERE customerid IS NULL) As missing_customerid,
 COUNT(*) FILTER (WHERE Country IS NULL) AS missing_country
 FROM online_retail;
 
-SELECT *
-FROM online_retail
-WHERE description IS NULL
-LIMIT 20;
-
 SELECT COUNT(*)
 FROM online_retail
 WHERE description IS NULL
 AND UnitPrice = 0;
+
+SELECT *
+FROM online_retail
+WHERE description IS NULL
+LIMIT 20;
 
 SELECT COUNT(*)
 FROM online_retail
@@ -105,4 +105,12 @@ SELECT DISTINCT Description
 FROM online_retail
 WHERE UnitPrice = 0
 AND Quantity > 0;
+
+SELECT COUNT(*)
+FROM online_retail
+WHERE UnitPrice < 0;
+
+SELECT *
+FROM online_retail
+WHERE UnitPrice < 0;
 
