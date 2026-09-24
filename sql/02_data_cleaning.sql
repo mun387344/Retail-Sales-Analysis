@@ -159,7 +159,7 @@ GROUP BY
 HAVING COUNT(*) > 1
 LIMIT 20;
 
---Just a simple sentence in your own words like, "Keep only normal positive sales, so exclude rows where quantity or price is not positive.
+--Keep only normal positive sales, so exclude rows where quantity or price is not positive.
 SELECT *
 FROM online_retail
 WHERE Quantity > 0
