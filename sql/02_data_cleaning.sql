@@ -114,3 +114,63 @@ SELECT *
 FROM online_retail
 WHERE UnitPrice < 0;
 
+SELECT
+    InvoiceNo,
+    StockCode,
+    Description,
+    Quantity,
+    InvoiceDate,
+    UnitPrice,
+    CustomerID,
+    Country,
+    COUNT(*) AS duplicate_count
+FROM online_retail
+GROUP BY
+    InvoiceNo,
+    StockCode,
+    Description,
+    Quantity,
+    InvoiceDate,
+    UnitPrice,
+    CustomerID,
+    Country
+HAVING COUNT(*) > 1;
+
+SELECT
+    InvoiceNo,
+    StockCode,
+    Description,
+    Quantity,
+    InvoiceDate,
+    UnitPrice,
+    CustomerID,
+    Country,
+    COUNT(*) AS duplicate_count
+FROM online_retail
+GROUP BY
+    InvoiceNo,
+    StockCode,
+    Description,
+    Quantity,
+    InvoiceDate,
+    UnitPrice,
+    CustomerID,
+    Country
+HAVING COUNT(*) > 1
+LIMIT 20;
+
+--Just a simple sentence in your own words like, "Keep only normal positive sales, so exclude rows where quantity or price is not positive.
+SELECT *
+FROM online_retail
+WHERE Quantity > 0
+AND UnitPrice > 0;
+
+SELECT 
+  MIN(Quantity) AS minimum_quantity,
+  MIN(UnitPrice) AS minimum_unit_price
+FROM online_retail
+WHERE Quantity > 0
+AND UnitPrice > 0;
+
+
+
