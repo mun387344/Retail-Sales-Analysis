@@ -1,3 +1,4 @@
+
 SELECT *
 FROM online_retail
 LIMIT 5;
@@ -26,3 +27,4 @@ WHERE CustomerID IS NULL;
 SELECT *
 FROM online_retail
 WHERE Quantity < 0;
+
