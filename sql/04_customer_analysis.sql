@@ -39,5 +39,29 @@ Customer activity finding:
   customers permanently stopped purchasing.
 */
 
+--What products are most frequently purchased by our highest-value customers?
 
+SELECT
+  CustomerID,
+  Stockcode,
+  COUNT(DISTINCT InvoiceNo) AS purchase_frequency
+FROM online_retail
+WHERE Quantity > 0
+AND UnitPrice > 0
+AND CustomerID IN ('14646','18102', '17450', '16446', '14911')
+AND StockCode NOT IN ('DOT', 'POST', 'M', 'AMAZONFEE', 'C2')
+GROUP BY CustomerID, Stockcode
+ORDER BY purchase_frequency DESC;
+
+/*
+Highest-value customer product findings:
+- Among the five highest-revenue customers, Customer 14911 purchased
+  StockCode 22423 most frequently, appearing in 49 distinct invoices.
+- StockCodes 85123A and 22699 each appeared in 33 distinct invoices
+  for Customer 14911.
+- Non-product charges such as carriage, postage, manual entries,
+  and Amazon fees were excluded from the product-frequency analysis.
+- Purchase frequency represents the number of distinct invoices
+  containing each product, not the number of units purchased.
+*/
 
