@@ -1,12 +1,12 @@
 SELECT COUNT(*)
 FROM online_retail
 WHERE Quantity < 0
-AND InvoiceNo LIKE 'C%';
+  AND InvoiceNo LIKE 'C%';
 
 SELECT *
 FROM online_retail
 WHERE Quantity < 0
-AND InvoiceNo NOT LIKE 'C%';
+  AND InvoiceNo NOT LIKE 'C%';
 
 SELECT 
 COUNT(*) FILTER (WHERE InvoiceNo IS NULL) AS missing_invoice,
@@ -22,7 +22,7 @@ FROM online_retail;
 SELECT COUNT(*)
 FROM online_retail
 WHERE description IS NULL
-AND UnitPrice = 0;
+  AND UnitPrice = 0;
 
 SELECT *
 FROM online_retail
@@ -32,7 +32,7 @@ LIMIT 20;
 SELECT COUNT(*)
 FROM online_retail
 WHERE description IS NULL
-AND customerid IS NULL;
+  AND customerid IS NULL;
 
 SELECT MIN(Quantity),MAX(Quantity)
 FROM online_retail;
@@ -40,7 +40,7 @@ FROM online_retail;
 SELECT *
 FROM online_retail
 WHERE Quantity = -80995
-OR Quantity = 80995;
+  OR Quantity = 80995;
 
 SELECT COUNT(*)
 FROM online_retail
@@ -54,57 +54,57 @@ LIMIT 20;
 SELECT *
 FROM online_retail
 WHERE UnitPrice = 0
-AND invoiceno LIKE 'C%';
+  AND invoiceno LIKE 'C%';
 
 SELECT COUNT(*)
 FROM online_retail
 WHERE UnitPrice = 0
-AND Customerid IS NULL;
+  AND Customerid IS NULL;
 
 SELECT *
 FROM online_retail
 WHERE UnitPrice = 0
-AND Customerid IS NOT NULL;
+  AND Customerid IS NOT NULL;
 
-SELECT Quantity UnitPrice
+SELECT Quantity, UnitPrice
 FROM online_retail
 WHERE UnitPrice = 0
-AND Quantity = 0;
-
-SELECT COUNT(*)
-FROM online_retail
-WHERE UnitPrice = 0
-AND Quantity < 0;
+  AND Quantity = 0;
 
 SELECT COUNT(*)
 FROM online_retail
 WHERE UnitPrice = 0
-AND Quantity < 0
-AND InvoiceNo NOT LIKE 'C%';
+  AND Quantity < 0;
 
 SELECT COUNT(*)
 FROM online_retail
 WHERE UnitPrice = 0
-AND Quantity < 0
-AND InvoiceNo NOT LIKE 'C%'
-AND CustomerID IS NULL;
+  AND Quantity < 0
+  AND InvoiceNo NOT LIKE 'C%';
+
+SELECT COUNT(*)
+FROM online_retail
+WHERE UnitPrice = 0
+  AND Quantity < 0
+  AND InvoiceNo NOT LIKE 'C%'
+  AND CustomerID IS NULL;
+ 
+SELECT DISTINCT Description
+FROM online_retail
+WHERE UnitPrice = 0
+  AND Quantity < 0
+  AND InvoiceNo NOT LIKE 'C%'
+  AND CustomerID IS NULL;
+
+SELECT COUNT(*)
+FROM online_retail
+WHERE UnitPrice = 0
+  AND Quantity > 0;
 
 SELECT DISTINCT Description
 FROM online_retail
 WHERE UnitPrice = 0
-AND Quantity < 0
-AND InvoiceNo NOT LIKE 'C%'
-AND CustomerID IS NULL;
-
-SELECT COUNT(*)
-FROM online_retail
-WHERE UnitPrice = 0
-AND Quantity > 0;
-
-SELECT DISTINCT Description
-FROM online_retail
-WHERE UnitPrice = 0
-AND Quantity > 0;
+  AND Quantity > 0;
 
 SELECT COUNT(*)
 FROM online_retail
@@ -163,14 +163,14 @@ LIMIT 20;
 SELECT *
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0;
+  AND UnitPrice > 0;
 
 SELECT 
   MIN(Quantity) AS minimum_quantity,
   MIN(UnitPrice) AS minimum_unit_price
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0;
+  AND UnitPrice > 0;
 
 
 

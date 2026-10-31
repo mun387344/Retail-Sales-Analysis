@@ -4,7 +4,8 @@
 SELECT SUM(Quantity * UnitPrice) AS Revenue
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0;
+  AND UnitPrice > 0
+  AND InvoiceNo NOT LIKE 'C%';
 
 -- How did revenue change over time?
 
@@ -20,7 +21,8 @@ SELECT
     SUM(Quantity * UnitPrice) AS monthly_revenue
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0
+  AND UnitPrice > 0
+  AND InvoiceNo NOT LIKE 'C%'
 GROUP BY month
 ORDER BY month;
 
@@ -40,7 +42,8 @@ SELECT
   SUM(Quantity*UnitPrice) AS country_total_revenue
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0
+  AND UnitPrice > 0
+  AND InvoiceNo NOT LIKE 'C%'
 GROUP BY Country
 ORDER BY customer_count DESC;
 
@@ -53,7 +56,8 @@ SELECT
   SUM(Quantity * UnitPrice) AS revenue
 FROM online_retail
 WHERE QUantity > 0
-AND UnitPrice > 0
+  AND UnitPrice > 0
+  AND InvoiceNo NOT LIKE 'C%'
 GROUP BY day_of_week
 ORDER BY revenue DESC;
 /*
@@ -69,7 +73,8 @@ SELECT
   SUM(Quantity*UnitPrice) AS revenue
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0
+  AND UnitPrice > 0
+  AND InvoiceNo NOT LIKE 'C%'
 GROUP BY Hour
 ORDER BY revenue DESC;
 

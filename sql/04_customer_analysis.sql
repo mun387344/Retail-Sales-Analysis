@@ -6,8 +6,8 @@ SELECT
   SUM(Quantity * UnitPrice) AS revenue
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0
-AND CustomerID IS NOT NULL
+ AND UnitPrice > 0
+ AND CustomerID IS NOT NULL
 GROUP BY CustomerID
 ORDER BY revenue DESC;
 
@@ -24,8 +24,8 @@ SELECT
     MAX(InvoiceDate) AS last_purchase_date
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0
-AND CustomerID IS NOT NULL
+ AND UnitPrice > 0
+ AND CustomerID IS NOT NULL
 GROUP BY CustomerID
 HAVING MAX(InvoiceDate) <
        (SELECT MAX(InvoiceDate) FROM online_retail) - INTERVAL '90 days'
@@ -47,9 +47,9 @@ SELECT
   COUNT(DISTINCT InvoiceNo) AS purchase_frequency
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0
-AND CustomerID IN ('14646','18102', '17450', '16446', '14911')
-AND StockCode NOT IN ('DOT', 'POST', 'M', 'AMAZONFEE', 'C2')
+  AND UnitPrice > 0
+  AND CustomerID IN ('14646','18102', '17450', '16446', '14911')
+  AND StockCode NOT IN ('DOT', 'POST', 'M', 'AMAZONFEE', 'C2')
 GROUP BY CustomerID, Stockcode
 ORDER BY purchase_frequency DESC;
 

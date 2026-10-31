@@ -8,7 +8,8 @@ SELECT
     SUM(Quantity) AS total_quantity_sold
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0
+  AND UnitPrice > 0
+  AND InvoiceNo NOT LIKE 'C%'
 GROUP BY StockCode
 ORDER BY total_quantity_sold DESC;
 
@@ -18,7 +19,8 @@ SELECT
     SUM(Quantity) AS total_quantity_sold
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0
+  AND UnitPrice > 0
+  AND InvoiceNo NOT LIKE 'C%'
 GROUP BY StockCode
 ORDER BY total_quantity_sold ASC;
 
@@ -48,8 +50,9 @@ SELECT
     SUM(Quantity * UnitPrice) AS product_revenue
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0
-AND StockCode NOT IN ('DOT', 'POST', 'M', 'AMAZONFEE')
+  AND UnitPrice > 0
+  AND InvoiceNo NOT LIKE 'C%'
+  AND StockCode NOT IN ('DOT', 'POST', 'M', 'AMAZONFEE')
 GROUP BY StockCode
 ORDER BY product_revenue DESC;
 
@@ -59,8 +62,9 @@ SELECT
     SUM(Quantity * UnitPrice) AS product_revenue
 FROM online_retail
 WHERE Quantity > 0
-AND UnitPrice > 0
-AND StockCode NOT IN ('DOT', 'POST', 'M', 'AMAZONFEE')
+  AND UnitPrice > 0
+  AND InvoiceNo NOT LIKE 'C%'
+  AND StockCode NOT IN ('DOT', 'POST', 'M', 'AMAZONFEE')
 GROUP BY StockCode
 ORDER BY product_revenue ASC;
 
